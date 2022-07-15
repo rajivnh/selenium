@@ -77,6 +77,7 @@ public abstract class BasePage {
     }
 
     //Read Text by using JAVA Generics (You can use both By or WebElement)
+    @SneakyThrows
     public <T> String readText(T elementAttr) {
         if (elementAttr.getClass().getName().contains("By")) {
             return driver.findElement((By) elementAttr).getText();

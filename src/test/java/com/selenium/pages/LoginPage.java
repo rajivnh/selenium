@@ -36,7 +36,7 @@ public class LoginPage extends BasePage {
     public LoginPage verifyWithXPath(String expectedErrMsg) {                
         String actualErrMsg = readText(By.xpath("//div[@class='infoDiv']//div[1]"));
         
-        assertThat(expectedErrMsg).isNotEqualTo(actualErrMsg);
+        assertThat(expectedErrMsg).isEqualTo(actualErrMsg);
         
         return this;
     }
