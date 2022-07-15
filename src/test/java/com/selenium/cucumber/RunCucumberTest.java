@@ -13,7 +13,14 @@ import io.cucumber.junit.platform.engine.Constants;
 @IncludeEngines("cucumber")
 @SelectDirectories("src/test/java/com/selenium/cucumber/features")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.selenium.cucumber")
+@ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_ENABLED_PROPERTY_NAME, value = "true")
 @ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "true")
 @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@SmokeTest")
+@ConfigurationParameter(key = Constants.PARALLEL_CONFIG_STRATEGY_PROPERTY_NAME, value = "dynamic")
+@ConfigurationParameter(key = Constants.PARALLEL_EXECUTION_ENABLED_PROPERTY_NAME, value = "true")
+@ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, "
+		+ "html:target/cucumber-reports/Cucumber.html, "
+		+ "json:target/cucumber-reports/Cucumber.json, "
+		+ "junit:target/cucumber-reports/Cucumber.xml")
 public class RunCucumberTest { 
 }

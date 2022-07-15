@@ -27,6 +27,6 @@ public class LoginSteps {
 
     @Then("I verify invalid login message")
     public void iVerifyInvalidLoginMessage() {
-    	loginPage.verifyWithXPath("Invalid Email Id or Password. Please try again!");
+    	loginPage.verifyWithXPath(" Invalid Email Id or Password. Please try again!");
     }
 }
