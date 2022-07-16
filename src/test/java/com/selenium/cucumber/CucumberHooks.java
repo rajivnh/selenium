@@ -25,7 +25,7 @@ public class CucumberHooks {
         	screenshotUtil.takeScreenShot("Failed - " + scenario.getName());
         }
     }
-
+    
     @After
     public void afterScenario() {
         this.applicationContext.getBean(WebDriver.class).quit();

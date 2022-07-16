@@ -13,7 +13,7 @@ import com.selenium.annotation.LazyComponent;
 
 @LazyComponent
 public class WebDriverWaitConfig {
-    @Value("${default.timeout:300}")
+    @Value("${default.timeout:30}")
     private int timeout;
 
     @Bean

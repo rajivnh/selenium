@@ -24,7 +24,7 @@ public abstract class BasePage {
 
     @Autowired
     protected JavascriptExecutor javascriptExecutor;
-
+    
     @PostConstruct
     private void init() {
         PageFactory.initElements(this.driver, this);

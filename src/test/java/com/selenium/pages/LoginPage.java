@@ -35,7 +35,6 @@ public class LoginPage extends BasePage {
         String actualErrMsg = readText(By.xpath("//div[@class='infoDiv']//div[1]"));
         
         assertThat(expectedErrMsg).isEqualTo(actualErrMsg);
-        
         return this;
     }
     
