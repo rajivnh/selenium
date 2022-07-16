@@ -65,6 +65,7 @@ public abstract class BasePage {
     //Write Text by using JAVA Generics (You can use both By or WebElement)
     public <T> void writeText(T elementAttr, String text) {
         waitElement(elementAttr);
+        
         if (elementAttr.getClass().getName().contains("By")) {
             wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By) elementAttr));
             

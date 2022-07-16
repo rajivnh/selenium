@@ -27,8 +27,6 @@ public class LoginPage extends BasePage {
 		Thread.sleep(2000);
                 
         jsClick(By.linkText("SIGN IN"));
-
-		Thread.sleep(2000);
         
         return this;
     }

@@ -22,7 +22,7 @@ public class CucumberHooks {
     @AfterStep
     public void afterStep(Scenario scenario) throws IOException {
         if(scenario.isFailed()) {
-        	screenshotUtil.takeScreenShot(scenario.getName());
+        	screenshotUtil.takeScreenShot("Failed - " + scenario.getName());
         }
     }
 

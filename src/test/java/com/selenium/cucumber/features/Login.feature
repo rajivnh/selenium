@@ -6,5 +6,5 @@ Feature: Login Feature
     When I enters Credentials to LogIn
       | username                  | password |
       | rajivk@beyontec.com       | 12345678 |
-      | admin@prontoinsurance.com | Sp1tf1re |    
+      | admin@prontoinsurance.com | Sp1tf1re |
     Then I verify invalid login message
