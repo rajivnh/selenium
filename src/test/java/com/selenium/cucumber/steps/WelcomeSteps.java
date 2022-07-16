@@ -20,7 +20,7 @@ public class WelcomeSteps {
     }
     
     @Then("I verify ADD DOCUMENT menu is selected")
-    public void iVerifyInvalidLoginMessage() {
+    public void iVerifyAddDocumentMenuSelected() {
     	welcomePage.verifyWithXPath("ADD DOCUMENT");
     }
 }
