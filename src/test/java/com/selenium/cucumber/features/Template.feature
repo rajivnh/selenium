@@ -1,13 +1,11 @@
-Feature: Welcome Feature
+Feature: Feature to test Template functionality
+
+  Background: I am on the Welcome page
+    Given I launch the Login page
+    When I login using valid "admin@prontoinsurance.com" and "Sp1tf1re"
+    Then I should see Welcome page
 
   @SmokeTest
-  Scenario Outline: I login the website with valid username and invalid password
-    Given I am on the login page
-    When I try to login with "<username>" and "<password>"
-    Then I verify ADD DOCUMENT menu is selected
-    When I click on Manage Template on the menu item
-    Then I verify if Template page is displayed
-
-    Examples: 
-      | username                  | password |
-      | admin@prontoinsurance.com | Sp1tf1re |
+  Scenario Outline: I login to website to go to Template page
+    When I click "MANAGE TEMPLATE" menu on welcome page
+    Then I verify "TEMPLATE ID" text displayed on Template page

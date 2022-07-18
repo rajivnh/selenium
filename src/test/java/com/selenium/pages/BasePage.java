@@ -30,11 +30,9 @@ public abstract class BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public abstract boolean isAt();
-
     public <T> void waitElement(T elementAttr) {
         if (elementAttr.getClass().getName().contains("By")) {
-            wait.until(ExpectedConditions.presenceOfElementLocated((By) elementAttr));
+            wait.until(ExpectedConditions.visibilityOfElementLocated((By) elementAttr));
         } else {
             wait.until(ExpectedConditions.visibilityOf((WebElement) elementAttr));
         }
@@ -48,9 +46,9 @@ public abstract class BasePage {
         }
     }
 
-    //Click Method by using JAVA Generics (You can use both By or Web element)
     public <T> void click(T elementAttr) {
         waitElement(elementAttr);
+        
         if (elementAttr.getClass().getName().contains("By")) {
             driver.findElement((By) elementAttr).click();
         } else {
@@ -62,7 +60,6 @@ public abstract class BasePage {
         javascriptExecutor.executeScript("arguments[0].click();", wait.until(ExpectedConditions.visibilityOfElementLocated(by)));
     }
 
-    //Write Text by using JAVA Generics (You can use both By or WebElement)
     public <T> void writeText(T elementAttr, String text) {
         waitElement(elementAttr);
         
@@ -80,6 +77,8 @@ public abstract class BasePage {
     //Read Text by using JAVA Generics (You can use both By or WebElement)
     @SneakyThrows
     public <T> String readText(T elementAttr) {
+    	waitElement(elementAttr);
+    	
         if (elementAttr.getClass().getName().contains("By")) {
             return driver.findElement((By) elementAttr).getText();
         } else {
@@ -87,14 +86,6 @@ public abstract class BasePage {
         }
     }
 
-    @SneakyThrows
-    public <T> String readTextErrorMessage(T elementAttr) {
-        Thread.sleep(2000); //This needs to be improved.
-        
-        return driver.findElement((By) elementAttr).getText();
-    }
-
-    //Close popup if exists
     public void handlePopup(By by) throws InterruptedException {
         waitElements(by);
         

@@ -3,26 +3,29 @@ package com.selenium.pages;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.selenium.annotation.LazyComponent;
+import com.selenium.annotation.TakeScreenshot;
 
 import lombok.SneakyThrows;
 
 @LazyComponent
 public class LoginPage extends BasePage {
-    @FindBy(how = How.NAME, using = "emailId")
-    public WebElement userName;
-
-    @FindBy(how = How.NAME, using = "password")
-    public WebElement password;
+    @Value("${base.url}")
+    private String baseURL;
+    
+    @TakeScreenshot
+    public LoginPage goToHomePage() {
+        driver.get(baseURL);
+        
+        return this;
+    }
     
     @SneakyThrows
-    public LoginPage login(String userName, String password) {
-        writeText(this.userName, userName);
-        writeText(this.password, password);
+    public LoginPage login(String emailId, String password) {
+        writeText(By.name("emailId"), emailId);
+        writeText(By.name("password"), password);
         
 		Thread.sleep(2000);
                 
@@ -31,16 +34,11 @@ public class LoginPage extends BasePage {
         return this;
     }
     
-    public LoginPage verifyWithXPath(String expectedErrMsg) {                
-        String actualErrMsg = readText(By.xpath("//div[@class='infoDiv']//div[1]"));
+    public LoginPage verifyWithXPath(String expectedErrMsg) {
+        String actualErrMsg = readText(By.xpath("//div[@class='infoDiv']//div"));
         
         assertThat(expectedErrMsg).isEqualTo(actualErrMsg);
         
         return this;
     }
-    
-	@Override
-	public boolean isAt() {
-		return this.wait.until((d) -> this.userName.isDisplayed());
-	}
 }
