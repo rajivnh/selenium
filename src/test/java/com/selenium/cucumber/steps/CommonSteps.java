@@ -26,7 +26,7 @@ public class CommonSteps {
 	}
 	
 	@When("I click {string} menu on welcome page")
-    public void iTrytoClickTemplateMenu(String linkText) {    	
-		welcomePage.clickTemplateMenu(linkText);
+    public void iTrytoClickMenu(String linkText) {    	
+		welcomePage.clickMenu(linkText);
     }
 }

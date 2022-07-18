@@ -20,7 +20,7 @@ public class WelcomePage extends BasePage {
     }
     
     @SneakyThrows
-    public WelcomePage clickTemplateMenu(String linkText) {
+    public WelcomePage clickMenu(String linkText) {
         jsClick(By.linkText(linkText));
         
         Thread.sleep(2000);

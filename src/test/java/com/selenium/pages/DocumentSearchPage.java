@@ -10,16 +10,6 @@ import lombok.SneakyThrows;
 
 @LazyComponent
 public class DocumentSearchPage extends BasePage {
-    @SneakyThrows
-    public DocumentSearchPage clickTemplateMenu(String linkText) {
-		Thread.sleep(2000);
-                
-        jsClick(By.linkText(linkText));
-        
-        Thread.sleep(2000);
-        
-        return this;
-    }
     
     @SneakyThrows
     public DocumentSearchPage verifyWithXPathIfTableHeaderExists(String expectedText) {                
