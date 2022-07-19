@@ -29,7 +29,7 @@ public abstract class BasePage {
     private void init() {
         PageFactory.initElements(this.driver, this);
     }
-
+    
     public <T> void waitElement(T elementAttr) {
         if (elementAttr.getClass().getName().contains("By")) {
             wait.until(ExpectedConditions.visibilityOfElementLocated((By) elementAttr));
@@ -74,7 +74,6 @@ public abstract class BasePage {
         }
     }
 
-    //Read Text by using JAVA Generics (You can use both By or WebElement)
     @SneakyThrows
     public <T> String readText(T elementAttr) {
     	waitElement(elementAttr);
