@@ -20,6 +20,6 @@ public class ScreenshotAspect {
     @After("@annotation(takeScreenshot)")
     public void after(JoinPoint joinPoint, TakeScreenshot takeScreenshot) throws IOException {    	
         this.screenshotUtil.takeScreenShot(joinPoint.getSignature().getName());
-        
+       
     }
 }
